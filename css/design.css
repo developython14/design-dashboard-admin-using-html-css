@@ -27,6 +27,12 @@
     height: 100%;
     background-color: var(--blue);
     transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active{
+    width: 105px;
+ 
 }
 
 .navigation ul {
@@ -92,7 +98,142 @@ background-color: var(--white);
     top: -50px;
     width: 50px;
     height: 50px;
-    background-color: red;
+    background-color: transparent;
     border-radius: 50%;
-    box-shadow: 35px 35px 0 10px var(--blue);
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+.navigation ul li:hover a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.main {
+    width: calc(100% - 300px);
+    position: absolute;
+    left: 300px;
+    min-height:100vh ;
+    background-color: var(--white);
+    transition: 0.5s;
+}
+.main.active {
+    width: calc(100% - 105px);
+    position: absolute;
+    left: 105px;
+    min-height:100vh ;
+    background-color: var(--white);
+    transition: 0.5s;
+}
+.topbar {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle {
+    position: relative;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    background-color: var(--grey);
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0px 10px;
+}
+.search label{
+    position: relative;
+    width: 100%;
+}
+.search label input{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    border: 1px solid var(--grey);
+    outline: none;
+    padding-left: 35px;
+}
+.search label ion-icon{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2em;
+}
+.user-image {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user-image img {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.cardbox {
+    position: relative;
+    width: 100%;
+    padding:20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+
+}
+
+.cardbox .card {
+    position: relative;
+    background-color: var(--white);
+    padding: 30px;
+    box-shadow: 0 7px 25px rgb(0,0,0,0.08);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardbox .card  .numbers{
+    position: relative;
+    color: var(--blue);
+    font-size: 2.5em;
+    font-weight: 500;
+}
+.cardbox .card  .cardname{
+    position: relative;
+    color: gray;
+    font-size: 1.1em;
+}
+.cardbox .card  .iconbox{
+    position: relative;
+    color: gray;
+    font-size: 3.5em;
+}
+
+.cardbox .card:hover {
+    background-color: var(--blue);
+}
+
+.cardbox .card:hover  .numbers,.cardbox .card:hover .iconbox,.cardbox .card:hover .cardname{
+    color: var(--white);
 }
